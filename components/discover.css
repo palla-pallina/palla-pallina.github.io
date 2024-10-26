@@ -1,0 +1,62 @@
+.discover-container1 {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #fdf4f1;
+}
+.discover-image1 {
+  width: 131px;
+  height: 154px;
+  align-self: center;
+  object-fit: cover;
+  padding-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.discover-button {
+  top: 269px;
+  left: 510px;
+  width: 187px;
+  height: 58px;
+  position: absolute;
+  transition: 0.3s;
+  border-color: #09397a;
+  border-width: 0px;
+  text-decoration: none;
+  background-color: #000000;
+}
+.discover-button:hover {
+  border-width: 0px;
+  background-color: #ff516b;
+}
+.discover-container2 {
+  width: 100%;
+  height: 233px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1729427851584-0b7df5748883?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8YWxsfDJ8fHx8fHx8fDE3Mjk3MDQ2OTN8&ixlib=rb-4.0.3&q=80&w=1500');
+  background-position: center;
+}
+.discover-image2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.discover-fragment {
+  display: contents;
+}
+.discover-text1 {
+  display: inline-block;
+  font-family: "Cabin";
+}
+
+
+@media(max-width: 479px) {
+  .discover-button {
+    width: 100%;
+  }
+}
