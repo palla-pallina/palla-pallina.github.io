@@ -1,0 +1,178 @@
+.header-about-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  background-color: var(--dl-color-theme-neutral-light);
+}
+.header-about-navbar-interactive {
+  width: 100%;
+  display: flex;
+  max-width: idth;
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  border-color: #000000;
+  border-width: 1px;
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+  background-color: #fdf4f1;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 2px;
+}
+.header-about-desktop-menu {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.header-about-links1 {
+  gap: var(--dl-space-space-twounits);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.header-about-link11 {
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.header-about-link31 {
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.header-about-link51 {
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.header-about-burger-menu {
+  display: none;
+}
+.header-about-icon10 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.header-about-mobile-menu {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  padding: var(--dl-space-space-twounits);
+  z-index: 100;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--dl-color-theme-neutral-light);
+}
+.header-about-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.header-about-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
+  justify-content: space-between;
+}
+.header-about-logo {
+  height: 3rem;
+}
+.header-about-close-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-about-icon12 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.header-about-links2 {
+  gap: var(--dl-space-space-unit);
+  flex: 0 0 auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.header-about-icon-group {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+}
+.header-about-fragment1 {
+  display: contents;
+}
+.header-about-text1 {
+  color: #000000;
+  display: inline-block;
+  font-family: "Cabin";
+}
+.header-about-text1:hover {
+  color: #ff516b;
+}
+.header-about-fragment2 {
+  display: contents;
+}
+.header-about-text2 {
+  color: #000000;
+  display: inline-block;
+  font-family: "Cabin";
+}
+.header-about-text2:hover {
+  color: #ff516b;
+}
+.header-about-fragment3 {
+  display: contents;
+}
+.header-about-text3 {
+  display: inline-block;
+}
+.header-about-fragment4 {
+  display: contents;
+}
+.header-about-text4 {
+  display: inline-block;
+}
+.header-about-fragment5 {
+  display: contents;
+}
+.header-about-text5 {
+  color: #000000;
+  display: inline-block;
+  font-family: "Cabin";
+}
+.header-about-text5:hover {
+  fill: #ff516b;
+  color: #ff516b;
+}
+
+@media(max-width: 767px) {
+  .header-about-navbar-interactive {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .header-about-desktop-menu {
+    display: none;
+  }
+  .header-about-burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media(max-width: 479px) {
+  .header-about-navbar-interactive {
+    padding: var(--dl-space-space-unit);
+  }
+  .header-about-mobile-menu {
+    padding: var(--dl-space-space-unit);
+  }
+}
