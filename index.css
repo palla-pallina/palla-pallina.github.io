@@ -6,6 +6,7 @@
     --muted: #d2d2d2;
     --rule: #4b2e22;
     --shadow: rgba(64, 39, 25, .15);
+    --sidebar-w: max(310px, 41.5vw);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -13,21 +14,31 @@ body {
     margin: 0;
     color: var(--ink);
     background: var(--peach);
-    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-family: "Nunito", Arial, sans-serif;
     line-height: 1.55;
     overflow-x: hidden;
+}
+.emp {
+    color: var(--rust);
+}
+.emp-i {
+    color: var(--rust);
+}
+.emp-features {
+    color: var(--rust);
 }
 a { color: inherit; }
 .layout {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: minmax(310px, 41.5%) 1fr;
+    position: relative;
 }
 .sidebar {
-    min-height: 100vh;
-    padding: 122px 152px;
     position: fixed;
-    overflow: hidden;
+    inset: 0 auto 0 0;
+    width: var(--sidebar-w);
+    padding: 122px 152px;
+    overflow-x: hidden;
+    overflow-y: auto;    
     background: var(--paper);
 }
 .profile {
@@ -44,11 +55,10 @@ a { color: inherit; }
 }
 .portrait svg { width: 100%; height: 100%; display: block; }
 h1 {
+    font-family: "Cal Sans", sans-serif;
     font-size: clamp(2rem, 2.7vw, 2.45rem);
     line-height: 1.12;
     margin: 0 0 1px;
-    font-weight: 800;
-    letter-spacing: -.035em;
 }
 .role {
     margin: 0 0 27px;
@@ -60,7 +70,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    top: 457px;
+    top: min(457px, calc(100vh - 140px)); 
     position: fixed;
     left: 81px;
     z-index: 10001;
@@ -149,6 +159,7 @@ h1 {
     background: var(--paper);
     box-shadow: 0 15px 50px rgba(0, 0, 0, .3);
     animation: appear .2s ease-out;
+    max-height: 90dvh;
 }
 
 .modal-title {
@@ -188,25 +199,6 @@ h1 {
     color: white;
 }
 
-@media (max-width: 480px) {
-    .project-ss {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-    }
-
-    .project-image {
-        height: 115px;
-    }
-
-    .image-modal {
-        padding: 12px;
-    }
-
-    .modal-content {
-        padding: 15px;
-    }
-}
-
 .side-nav a:hover, .side-nav a.active { color: var(--rust); }
 .oupi-art {
     position: absolute;
@@ -220,8 +212,7 @@ main {
     padding: clamp(34px, 4.3vw, 58px) clamp(32px, 5.7vw, 80px) 48px;
     min-width: 0;
     position: relative;
-    margin-right: -247px;
-    right: -610px;
+    margin-left: var(--sidebar-w); 
 }
 .section-heading {
     display: flex;
@@ -230,11 +221,10 @@ main {
     margin: 0;
 }
 .script {
-    font-family: "Segoe Script", "Brush Script MT", cursive;
-    font-size: clamp(1.65rem, 2.4vw, 2.15rem);
-    font-weight: 400;
+    font-family: "Momo Signature", cursive;
+    font-size: clamp(1.65rem, 1.4vw, 2.15rem);
+    font-weight: 200;
     white-space: nowrap;
-    letter-spacing: -.07em;
     line-height: 1.2;
 }
 .rule { height: 4px; background: var(--rule); flex: 1; min-width: 35px; }
@@ -297,38 +287,112 @@ main {
 .project-card p { margin: 0; }
 .small-note { font-size: .9rem; opacity: .8; margin-top: 18px; }
 @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 760px) {
-    .layout { display: block; }
-    .sidebar {
-    min-height: 100vh;
-    padding: 84px 100px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1000;
-    position: fixed;
-    }
-    .profile { display: contents; }
-    .portrait {
-    grid-row: span 3;
-    width: 100px;
-    border-width: 5px;
-    outline-offset: -12px;
-    margin: 0;
-    }
-    h1 { font-size: 1.8rem; }
-    .role { font-size: 1.05rem; margin-bottom: 8px; }
-    .socials { flex-direction: row; gap: 10px; margin: 4px 0; }
-    .social-link { width: 34px; height: 34px; }
-    .side-nav { flex-direction: row; gap: 18px; font-size: 1.15rem; margin: 0; }
-    main { padding: 36px 26px 50px; box-shadow: 0 -5px 14px var(--shadow); }
-    .section-heading { gap: 15px; margin-bottom: 30px; }
-    .script { font-size: 1.65rem; }
+
+/* Small laptops / large tablets */
+@media (max-width: 1200px) {
+    .sidebar { padding-inline: 96px; }
+    .socials { left: 28px; }
+}
+
+@media (max-width: 1024px) {
+    :root { --sidebar-w: max(300px, 38vw); }
+    .side-nav { font-size: 1.3rem; }
     .about-copy { font-size: 1.05rem; }
-    .toolkit { margin-top: 56px; }
+    .oupi-art { max-height: 130px; }
+}
+
+@media (max-width: 900px) and (min-width: 761px) {
+    .sidebar { padding-inline: 80px 32px; }
+    .socials { left: 16px; }
+}
+
+/* Short desktop/laptop windows */
+@media (max-height: 720px) and (min-width: 761px) {
+    .sidebar { padding-block: 48px; }
+    .portrait img { max-height: 170px; }
+    .oupi-art { display: none; }
+}
+
+/* Mobile: sidebar becomes a header block above the content */
+@media (max-width: 760px) {
+    .sidebar {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        padding: 32px 24px 28px;
+        overflow: hidden;
+    }
+
+    .profile { margin: 0; }
+    .portrait { width: 96px; margin-bottom: 12px; }
+    .portrait img { width: 100%; max-height: none; }
+
+    h1 { font-size: 1.8rem; }
+    .role { font-size: 1.05rem; margin-bottom: 14px; }
+
+    /* socials sit in the top-right corner and scroll away with the page */
+    .socials {
+        position: absolute;
+        top: 28px;
+        right: 20px;
+        left: auto;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .social-link { width: 36px; height: 36px; }
+
+    .side-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 20px;
+        font-size: 1.15rem;
+    }
+
+    .oupi-art {
+        left: auto;
+        right: 12px;
+        bottom: 8px;
+        max-height: 80px;
+        padding: 0;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 36px 24px 50px;
+        box-shadow: 0 -5px 14px var(--shadow);
+    }
+
+    .section-heading { gap: 15px; margin-bottom: 24px; }
+    .script { font-size: 1.65rem; }
+    .about-copy { font-size: 1rem; }
+    .about-copy p { margin-bottom: 22px; }
+    .toolkit { margin-top: 48px; }
     .skills { justify-content: flex-start; gap: 18px; }
     .skill { width: 42px; height: 48px; }
-    .projects { margin-top: 60px; }
+    .projects { margin-top: 40px; }
+    .project-card { padding: 16px; }
 }
+
+/* Small phones */
+@media (max-width: 480px) {
+    .sidebar { padding: 28px 18px 24px; }
+    main { padding: 30px 18px 44px; }
+    .project-ss { gap: 8px; }
+    .project-image { height: 115px; }
+    .image-modal { padding: 12px; }
+    .modal-content { padding: 15px; }
+    .modal-title { font-size: 1.15rem; }
+}
+
+@media (max-width: 400px) {
+    .oupi-art { display: none; }   /* avoids overlapping the nav */
+}
+
+@media (max-width: 340px) {
+    .project-ss { grid-template-columns: 1fr; }
+    .project-image { height: 160px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
